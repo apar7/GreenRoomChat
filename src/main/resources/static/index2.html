@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Byszoczat</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div style="text-align: center;"><h1>Pączoczat</h1></div>
+
+<div id="textbox">
+</div>
+
+<div id="messageBoxContainer">
+    <form id="messageBox">
+        <input type="text">
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/sockjs.min.js"></script>
+<script src="scripts/stomp.min.js"></script>
+<script>
+    var socket = new SockJS('/stomp');
+    var stompClient = Stomp.over(socket);
+    stompClient.connect({}, connectCallback);
+
+
+    function sendMessage(event) {
+        stompClient.send("/app/send", {}, $("input").val());
+        $("input").val("");
+        event.preventDefault();
+    }
+
+    function onMessageReceived(payload) {
+        $("#textbox").append(payload.body + "<br>");
+    }
+
+    function connectCallback(event) {
+        stompClient.subscribe('/topic/public', onMessageReceived);
+        event.preventDefault();
+    }
+
+
+    document.querySelector('#messageBox').addEventListener('submit', sendMessage, true);
+
+</script>
+</body>
+</html>
