@@ -2,8 +2,6 @@ package com.chatExample;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -15,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class ChatController {
@@ -38,8 +37,11 @@ public class ChatController {
 
     @MessageMapping("/send")
     @SendTo("/topic/public")
-    public String sendMessage(@Payload String message) {
-        logger.info(message);
+    public String[] sendMessage(@Payload String[] message) {
+        logger.info(message[0] + ": " + message[1]);
+        Date instant = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        message[2] = sdf.format(instant);
         return message;
     }
 /*

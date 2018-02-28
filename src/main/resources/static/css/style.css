@@ -1,0 +1,107 @@
+#header {
+    text-align: center;
+    color: darkolivegreen;
+    font: 24px Georgia, Serif;
+    margin: 20px;
+}
+
+.parent {
+    position: relative;
+    overflow: hidden;
+    background-image: url('../imgs/totoro.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 700px;
+    height: 430px;
+    width: 1200px;
+    border: 8px solid yellowgreen;
+    padding: 0px 20px 0px 20px;
+    font: 16px Georgia, Serif;
+}
+
+.scrollbar {
+    cursor: n-resize;
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background: greenyellow;
+    width: 10px;
+    border-radius: 8px;
+}
+
+#textbox {
+    overflow-y: scroll;
+    position: absolute;
+    padding: 0 10px 0px 0;
+    width: 1230px;
+    height: 100%;
+}
+
+input {
+    border: 1px solid white;
+    display: inline-block;
+    font: 18px Georgia, Serif;
+    width: 90%;
+    margin-top: 12px;
+    color: darkolivegreen;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    background-color: yellowgreen;
+    font-size: 18px;
+    color: white;
+    float: right;
+    height: 53px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#messageBoxContainer {
+    width: 1220px;
+    border: 8px solid yellowgreen;
+    border-top: none;
+    padding-left: 20px;
+    background-color: yellowgreen;
+    position: relative;
+}
+
+.time {
+    position: absolute;
+    left: 10px;
+    font: 12px Georgia, Serif;
+    color: gray;
+
+}
+
+.nickname {
+    position: absolute;
+    left: 60px;
+    font: bold 12px Georgia, Serif;
+    color: forestgreen;
+
+}
+
+.messageContent {
+    position: relative;
+    left: 140px;
+    font: 16px Georgia, Serif;
+    color: darkolivegreen;
+}
+
+.firstRow {
+    background-color: white;
+    border: double white;
+    width: 900px;
+}
+
+.secondRow {
+    margin-top: 5px;
+    padding-bottom: 5px;
+    background-color: lightgray;
+    border: groove rgba(235, 235, 235, 0.28);
+    width: 900px;
+}
