@@ -1,10 +1,9 @@
-package com.chatExample.security;
+package com.greenroomchat.userdata;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="USERS")
@@ -15,10 +14,10 @@ public class User {
     private Long id;
     @Column(name = "USERNAME", unique = true)
     @NotEmpty
+    @Size(min = 3, max = 15)
     private String username;
     @Column(name = "PASSWORD")
     @NotEmpty
-    @JsonIgnore
     private String password;
 
 

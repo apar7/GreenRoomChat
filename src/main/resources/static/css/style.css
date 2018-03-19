@@ -1,76 +1,130 @@
-#header {
-    text-align: center;
-    color: darkolivegreen;
-    font: 24px Georgia, Serif;
-    margin: 20px;
+#logout {
+    float: right;
+    margin-right: 20px;
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.chat {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -250px;
+    margin-left: -605px;
 }
 
 .parent {
     position: relative;
     overflow: hidden;
-    background-image: url('../imgs/totoro.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 700px;
     height: 430px;
-    width: 1200px;
+    width: 1120px;
     border: 8px solid yellowgreen;
-    padding: 0px 20px 0px 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 0 5px 0 20px;
     font: 16px Georgia, Serif;
 }
 
-.scrollbar {
-    cursor: n-resize;
-    position: absolute;
-    overflow: auto;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    background: greenyellow;
-    width: 10px;
-    border-radius: 8px;
+#userListBox {
+
+    float: right;
+    border: 4px solid yellowgreen;
+    width: 180px;
+    height: 330px;
+    margin-top: 20px;
+    margin-right: 17px;
+    border-radius: 16px;
+}
+
+#userListHeading {
+    background-color: yellowgreen;
+    width: 100%;
+    height: 30px;
+    vertical-align: middle;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#userListHeading div {
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 18px;
+    font: 16px Georgia, Serif;
+    color: white;
+}
+
+#userList {
+    height: 296px;
+}
+
+#userListContent {
+    list-style-type: none;
+    margin-left: 5px;
+    padding: 0;
+    color: darkolivegreen;
+    font-size: 10px;
+}
+
+.serverError {
+    font-size: 12px;
+    color: darkred;
 }
 
 #textbox {
-    overflow-y: scroll;
+    overflow: auto;
     position: absolute;
-    padding: 0 10px 0px 0;
-    width: 1230px;
+    padding: 0 10px 0 0;
+    width: 1120px;
     height: 100%;
 }
 
-input {
-    border: 1px solid white;
-    display: inline-block;
+#textInput {
+    border-radius: 10px;
+    border: 2px solid yellowgreen;
     font: 18px Georgia, Serif;
-    width: 90%;
+    width: 85%;
     margin-top: 12px;
+    padding-left: 8px;
     color: darkolivegreen;
 }
 
-button {
-    display: inline-block;
+#btn1 {
     border: none;
+    border-radius: 16px;
+    background-color: yellowgreen;
+    float: left;
+    height: 53px;
+    width: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#send {
+    border: none;
+    border-radius: 16px;
     background-color: yellowgreen;
     font-size: 18px;
     color: white;
     float: right;
     height: 53px;
-    width: 100px;
+    width: 90px;
     cursor: pointer;
 }
 
 #messageBoxContainer {
-    width: 1220px;
+    width: 1145px;
+    height: 55px;
     border: 8px solid yellowgreen;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
     border-top: none;
-    padding-left: 20px;
     background-color: yellowgreen;
     position: relative;
 }
 
 .time {
-    position: absolute;
+    position: relative;
     left: 10px;
     font: 12px Georgia, Serif;
     color: gray;
@@ -78,30 +132,41 @@ button {
 }
 
 .nickname {
-    position: absolute;
-    left: 60px;
-    font: bold 12px Georgia, Serif;
+    position: relative;
+    left: 20px;
+    margin-top: 2px;
+    font: bold 14px Georgia, Serif;
     color: forestgreen;
 
 }
 
 .messageContent {
     position: relative;
-    left: 140px;
-    font: 16px Georgia, Serif;
+    margin-top: 5px;
+    left: 30px;
+    font: 18px Georgia, Serif;
     color: darkolivegreen;
+    word-wrap: break-word;
+    padding-right: 60px;
 }
 
 .firstRow {
-    background-color: white;
-    border: double white;
-    width: 900px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    background-color: lightgray;
+    border: groove rgba(235, 235, 235, 0.28);
+    border-radius: 10px;
 }
 
 .secondRow {
-    margin-top: 5px;
-    padding-bottom: 5px;
-    background-color: lightgray;
-    border: groove rgba(235, 235, 235, 0.28);
-    width: 900px;
+    background-color: white;
+    border: double white;
 }
+
+.messageRow {
+    width: 900px;
+    min-height: 42px;
+}
+

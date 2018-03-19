@@ -1,142 +1,45 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Byszoczat</title>
+    <title>Green Room</title>
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!--  <link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.emoji.css">
 </head>
 <body>
+<a href="/logout" id="logout">Log out</a>
+<div class="chat">
+    <div class="parent">
+        <div id="textbox" class="content">
 
-<div id="header">BYSZOCZAT</div>
-<div class="parent">
-    <div class="scrollbar"></div>
-    <div id="textbox" class="scrollable">
-        <!-- <div id="textbox"> -->
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
         </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
+        <div id="userListBox">
+            <div id="userListHeading">
+                <div>In the room:</div>
+            </div>
+            <div id="userList">
+                <ul id="userListContent">
+                </ul>
+            </div>
         </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiuławo</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiu</span>
-        </div>
-        <div class="secondRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">CZESIO</span>
-            <span class="messageContent">CZesław</span>
-        </div>
-        <div class="firstRow">
-            <span class="time"> 12:43</span>
-            <span class="nickname">ZDZISIEK</span>
-            <span class="messageContent">Siema CZesiuławo</span>
-        </div>
+    </div>
+    <div id="messageBoxContainer">
+        <button id="btn1"><img src="img/emoji/9.png"></button>
+        <form id="messageBox">
+            <input id="textInput" type="text">
+            <button id="send" type="submit">Send</button>
+        </form>
     </div>
 </div>
 
-<div id="messageBoxContainer">
-    <form id="messageBox">
-        <input type="text">
-        <button type="submit">Send</button>
-    </form>
-</div>
+
 <script src="scripts/jquery-3.3.1.min.js"></script>
-<script src="scripts/jquery-ui.min.js"></script>
 <script src="scripts/jquery.color-2.1.2.min.js"></script>
-<!-- <script src="scripts/jquery.custom-scrollbar.min.js"></script> -->
+<script src="scripts/jquery.emoji.js"></script>
+<script src="scripts/mCustomScrollbar.concat.min.js"></script>
 <script src="scripts/sockjs.min.js"></script>
 <script src="scripts/stomp.min.js"></script>
 <script src="scripts/main.js"></script>

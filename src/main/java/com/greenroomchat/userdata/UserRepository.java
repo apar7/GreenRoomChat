@@ -1,4 +1,4 @@
-package com.chatExample.security;
+package com.greenroomchat.userdata;
 
 import org.springframework.data.repository.CrudRepository;
 

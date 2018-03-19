@@ -1,4 +1,4 @@
-package com.chatExample.stompChat;
+package com.greenroomchat.stompChat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

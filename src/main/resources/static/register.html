@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Green Room</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
+</head>
+<body>
+
+<div id="header">Please log in. If you have't signed up yet, create your own account</div>
+<div class="formBox">
+    <form name="loginForm" action="/login" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"/><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"/><br>
+        <div class="form-actions">
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+</div>
+
+<div class="formBox">
+    <form name="registerForm" action="/signup" method="post">
+        <label for="usernameNew" id="usernameLabel">Username:</label><br>
+        <input type="text" id="usernameNew" name="username"/><br>
+        <label for="password1" id="pass1label">Password:</label><br>
+        <input type="password" id="password1"/><br>
+        <label for="password2" id="pass2label">Repeat password:</label><br>
+        <input type="password" id="password2"/><br>
+        <div class="form-actions">
+            <button id="signUpButton" type="submit">Sign up</button>
+        </div>
+    </form>
+</div>
+<div id="regSuccess" class="regResult"><p>The profile was successfully created.</p>
+    <p>You can log in now.</p></div>
+<div id="regFail" class="regResult"><p>This username is already taken.</p>
+    <p>Choose another one.</p></div>
+<div id="logFail" class="regResult"><p>Incorrect login data.</p>
+    <p>Please try again.</p></div>
+<div id="userInUse" class="regResult"><p>Access denied.</p>
+    <p>Username is currently in use.</p></div>
+
+<script src="scripts/jquery-3.3.1.min.js"></script>
+<script src="scripts/jquery.color-2.1.2.min.js"></script>
+<script src="scripts/jquery.popupoverlay.js"></script>
+<script>
+    if (window.location.href.indexOf('?incorrect') != -1) {
+        $('#logFail').popup('show');
+    }
+
+    if (window.location.href.indexOf('?userinuse') != -1) {
+        $('#userInUse').popup('show');
+    }
+
+    var usernameRegex = new RegExp(/[\s!@#`~$%\\^?&*()\-\[,.<>/;':"+=|\]]/);
+
+    $('button').hover(function () {
+        $(this).animate({backgroundColor: '#9acd32'})
+    }, function () {
+        $(this).animate({backgroundColor: '#adff2f'})
+    });
+
+    $('#signUpButton').click(function (event) {
+        $('.error').remove();
+        if ($('#password1').val() !== $('#password2').val()) {
+            $('#pass2label').append('<span class="error"> doesn\'t match</span>');
+        } else if ($('#password1').val().length < 5 || $('#password1').val().length > 20) {
+            $('#pass1label').append('<span class="error"> between 5 and 20 chars</span>');
+        } else if ($('#usernameNew').val().length < 3 || $('#usernameNew').val().length > 15) {
+            $('#usernameLabel').append('<span class="error"> between 3 and 15 chars</span>');
+      } else if (usernameRegex.test($('#usernameNew').val())){
+        $('#usernameLabel').append('<span class="error"> only letters and numbers</span>');
+        }
+        else {
+            var user = {
+                'username': $('#usernameNew').val(),
+                'password': $('#password1').val()
+            };
+            $.ajax({
+                url: '/signup',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(user),
+                dataType: 'json'
+            }).done(function (response) {
+                if (response) {
+                    $('#regSuccess').popup('show');
+                } else {
+                    $('#regFail').popup('show');
+                }
+            });
+        }
+        event.preventDefault();
+    });
+
+
+</script>
+</body>
+</html>
+
+
+
